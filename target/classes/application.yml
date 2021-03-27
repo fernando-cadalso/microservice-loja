@@ -10,4 +10,4 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:8762/eureka
+      defaultZone: https://eureka-server-cadalso.herokuapp.com/eureka
