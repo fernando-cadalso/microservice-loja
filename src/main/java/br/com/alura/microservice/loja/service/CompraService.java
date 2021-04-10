@@ -36,8 +36,9 @@ public class CompraService {
 	 * para instâncias desse método, através da propriedade "threadPoolKey".
 	 */
 	
-	@HystrixCommand(fallbackMethod = "realizaCompraFallback", threadPoolKey = "realizaCompraThreadPool")
-//	@HystrixCommand(fallbackMethod = "realizaCompraFallback")
+//	@HystrixCommand(fallbackMethod = "realizaCompraFallback", threadPoolKey = "realizaCompraThreadPool")
+//	@HystrixCommand(threadPoolKey = "realizaCompraThreadPool")
+//	@HystrixCommand
 	public Compra realizaCompra(CompraDto compra) {
 
 		Compra compraSalva = new Compra();
@@ -63,7 +64,7 @@ public class CompraService {
 		compraSalva.setState(CompraState.PEDIDO_FORNECEDOR);
 		compraRepo.save(compraSalva);
 		
-		if (1==1) throw new RuntimeException();
+//		if (1==1) throw new RuntimeException();
 		/*
 		 * Inicia a entrega do pedido no transportador para gerar o voucher de reserva.
 		 */
@@ -90,13 +91,22 @@ public class CompraService {
 	/*
 	 * Método chamado quando a lógica fallback é executada.
 	 */
-	public Compra realizaCompraFallback(CompraDto compra) {
-		if (compra.getCompraId() != null)
-			return compraRepo.findById(compra.getCompraId()).get();
+	public void realizaCompraFallback(CompraDto compra) {
+		int contaFallback = 0;
+		for(int i = 1; i <=3; i++) {
 		
-		Compra compraSalvaFallback = new Compra();
-		compraSalvaFallback.setEnderecoDestino(compra.getEndereco().toString());
-		return compraSalvaFallback;
+			System.out.println("Fallback " + i);
+			contaFallback = i;
+			this.realizaCompra(compra);
+		}
+		System.out.println("Tentei " + contaFallback + " vezes e não consegui. Verifique o link.");
+		
+//		if (compra.getCompraId() != null)
+//			return compraRepo.findById(compra.getCompraId()).get();
+//		
+//		Compra compraSalvaFallback = new Compra();
+//		compraSalvaFallback.setEnderecoDestino(compra.getEndereco().toString());
+//		return compraSalvaFallback;
 
 	}
 

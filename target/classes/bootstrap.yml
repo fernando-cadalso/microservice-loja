@@ -1,0 +1,11 @@
+#O arquivo bootstrap.yml é lido antes de qualquer outra configuração da aplicação.
+#Para que essa configuração seja lida é necessário adicionar a dependência "spring cloud config client"    
+spring:
+  application:
+    name: 'loja'
+  profiles:
+    active: default
+  cloud:
+    config:
+      uri: https://config-server-cadalso.herokuapp.com
+#      uri: http://localhost:8888

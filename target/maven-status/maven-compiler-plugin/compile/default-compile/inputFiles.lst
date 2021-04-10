@@ -1,0 +1,16 @@
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/dto/VoucherDTO.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/LojaApplication.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/dto/EnderecoDto.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/dto/ItemDaCompraDto.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/dto/InfoFornecedorDto.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/repo/CompraRepository.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/service/CompraService.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/dto/InfoPedidoDto.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/ResourceServerConfigurer.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/dto/CompraDto.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/controller/CompraController.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/client/FornecedorClient.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/client/TransportadorClient.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/model/CompraState.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/dto/InfoEntregaDto.java
+/home/fernando/eclipse-workspace/sts-ws-java/microservice-loja/src/main/java/br/com/alura/microservice/loja/model/Compra.java

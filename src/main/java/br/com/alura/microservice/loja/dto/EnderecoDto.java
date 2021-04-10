@@ -34,7 +34,7 @@ public class EnderecoDto {
 
 	@Override
 	public String toString() {
-		return "EnderecoDto [rua=" + rua + ", numero=" + numero + ", estado=" + estado + "]";
+		return "Resposta fallback: EnderecoDto [rua=" + rua + ", numero=" + numero + ", estado=" + estado + "]";
 	}
 	
 	

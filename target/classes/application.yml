@@ -10,4 +10,9 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: https://eureka-server-cadalso.herokuapp.com/eureka
+      defaultZone: https://eureka-server-cadalso.herokuapp.com/eureka     
+      
+hystrix:
+  shareSecurityContext: true
+  
+#As configurações OAuth são consumidas do servidor de configurações.  
