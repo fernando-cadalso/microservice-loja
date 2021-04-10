@@ -35,10 +35,9 @@ public class CompraService {
 	 * fornecedor através da propriedade "fallbackMethod" e cria um conjunto de threads
 	 * para instâncias desse método, através da propriedade "threadPoolKey".
 	 */
-	
-//	@HystrixCommand(fallbackMethod = "realizaCompraFallback", threadPoolKey = "realizaCompraThreadPool")
+//	@HystrixCommand	
 //	@HystrixCommand(threadPoolKey = "realizaCompraThreadPool")
-//	@HystrixCommand
+	@HystrixCommand(fallbackMethod = "realizaCompraFallback", threadPoolKey = "realizaCompraThreadPool")
 	public Compra realizaCompra(CompraDto compra) {
 
 		Compra compraSalva = new Compra();
@@ -91,22 +90,22 @@ public class CompraService {
 	/*
 	 * Método chamado quando a lógica fallback é executada.
 	 */
-	public void realizaCompraFallback(CompraDto compra) {
-		int contaFallback = 0;
-		for(int i = 1; i <=3; i++) {
-		
-			System.out.println("Fallback " + i);
-			contaFallback = i;
-			this.realizaCompra(compra);
-		}
-		System.out.println("Tentei " + contaFallback + " vezes e não consegui. Verifique o link.");
-		
-//		if (compra.getCompraId() != null)
-//			return compraRepo.findById(compra.getCompraId()).get();
+	public Compra realizaCompraFallback(CompraDto compra) {
+//		int contaFallback = 0;
+//		for(int i = 1; i <=3; i++) {
 //		
-//		Compra compraSalvaFallback = new Compra();
-//		compraSalvaFallback.setEnderecoDestino(compra.getEndereco().toString());
-//		return compraSalvaFallback;
+//			System.out.println("Fallback " + i);
+//			contaFallback = i;
+//			this.realizaCompra(compra);
+//		}
+//		System.out.println("Tentei " + contaFallback + " vezes e não consegui. Verifique o link.");
+		
+		if (compra.getCompraId() != null)
+			return compraRepo.findById(compra.getCompraId()).get();
+		
+		Compra compraSalvaFallback = new Compra();
+		compraSalvaFallback.setEnderecoDestino(compra.getEndereco().toString());
+		return compraSalvaFallback;
 
 	}
 
@@ -115,8 +114,9 @@ public class CompraService {
 	 * e agrupa um conjunto de threads para instâncias desse método,
 	 * através da propriedade "threadPoolKey". 
 	 */
-	@HystrixCommand(threadPoolKey = "getByIdThreadPool")
+	
 //	@HystrixCommand
+	@HystrixCommand(threadPoolKey = "getByIdThreadPool")
 	public Compra getById(Long id) {
 		return compraRepo.findById(id).orElse(new Compra());
 	}
